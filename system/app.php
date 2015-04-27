@@ -107,17 +107,22 @@ final class Application {
                 if(isset($url_array['app'])){
                         $app = $url_array['app'];
                 }
+                print_r('url_array is exist');
+                print_r($url_array);
                 
                 if(isset($url_array['c'])){
+                        print_r('c is exist');
                         $controller = $model = $url_array['c'];
                         if($app){
                                 $controller_file = CONTROLLER_PATH.'/'.$app.'/'.$controller.'Controller.php';
                                 $model_file = MODEL_PATH.'/'.$app.'/'.$model.'Model.php';
                         }else{
+                            print_r('app is not exist');
                                 $controller_file = CONTROLLER_PATH.'/'.$controller.'Controller.php';
                                 $model_file = MODEL_PATH.'/'.$model.'Model.php';
                         }
                 }else{
+                    print_r('c is not exist');
                         $controller = $model = self::$_config['route']['default_controller'];
                         if($app){
                                 $controller_file = CONTROLLER_PATH.'/'.$app.'/'.self::$_config['route']['default_controller'].'Controller.php';
