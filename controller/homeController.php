@@ -20,5 +20,13 @@ class homeController extends Controller {
 //                $object->filename = "2011-12-28_SQL.txt";//下载另存为的文件名
 //                $object->download();
         }
+
+
+        public function run() {
+//            $object = $this->load('download',FALSE);
+//            var_dump($object);
+            print('php run');
+            exit();
+        }
 }
 
