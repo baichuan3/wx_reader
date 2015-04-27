@@ -55,6 +55,8 @@ final class Route{
                 $arr = !empty ($this->url_query['query']) ?explode('&', $this->url_query['query']) :array();
                 print_r(' arr is found 0.0 ');
                 print_r($arr);
+                print_r(' url_query is found 0.0 ');
+                print_r($url_query);
                 $array = $tmp = array();
                 if (count($arr) > 0) {
                         foreach ($arr as $item) {
@@ -88,6 +90,7 @@ final class Route{
             $arr = !empty ($this->url_query['query']) ?explode('&', $this->url_query['query']) :array();
             print_r(' arr is found ');
             print_r($arr);
+            url_query
         }
 }
 
