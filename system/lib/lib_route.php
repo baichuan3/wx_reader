@@ -63,13 +63,13 @@ final class Route{
                                 $this->route_url['app'] = $array['app'];
                                 unset($array['app']);
                         } 
-                        if (isset($array['controller'])) {
-                                $this->route_url['controller'] = $array['controller'];
-                                unset($array['controller']);
+                        if (isset($array['c'])) {
+                                $this->route_url['c'] = $array['c'];
+                                unset($array['c']);
                         } 
-                        if (isset($array['action'])) {
-                                $this->route_url['action'] = $array['action'];
-                                unset($array['action']);
+                        if (isset($array['a'])) {
+                                $this->route_url['a'] = $array['a'];
+                                unset($array['a']);
                         }
                         if(count($array) > 0){
                                 $this->route_url['params'] = $array;
