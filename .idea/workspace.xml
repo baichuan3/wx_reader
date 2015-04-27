@@ -71,7 +71,7 @@
       <file leaf-file-name="homeController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/homeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="35" selection-start="165" selection-end="165" vertical-scroll-proportion="0.1010101" vertical-offset="75" max-vertical-offset="570">
+            <state line="15" column="34" selection-start="396" selection-end="396" vertical-scroll-proportion="0.24242425" vertical-offset="153" max-vertical-offset="585">
               <folding />
             </state>
           </provider>
@@ -131,8 +131,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="127" />
-    <option name="y" value="29" />
+    <option name="x" value="120" />
+    <option name="y" value="50" />
     <option name="width" value="1280" />
     <option name="height" value="650" />
   </component>
@@ -343,7 +343,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="127" y="29" width="1280" height="650" extended-state="0" />
+    <frame x="120" y="50" width="1280" height="650" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -462,7 +462,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/homeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="35" selection-start="165" selection-end="165" vertical-scroll-proportion="0.1010101" vertical-offset="75" max-vertical-offset="570">
+        <state line="15" column="34" selection-start="396" selection-end="396" vertical-scroll-proportion="0.24242425" vertical-offset="153" max-vertical-offset="585">
           <folding />
         </state>
       </provider>
