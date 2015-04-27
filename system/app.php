@@ -108,8 +108,8 @@ final class Application {
                         $app = $url_array['app'];
                 }
                 
-                if(isset($url_array['controller'])){
-                        $controller = $model = $url_array['controller'];
+                if(isset($url_array['c'])){
+                        $controller = $model = $url_array['c'];
                         if($app){
                                 $controller_file = CONTROLLER_PATH.'/'.$app.'/'.$controller.'Controller.php';
                                 $model_file = MODEL_PATH.'/'.$app.'/'.$model.'Model.php';
@@ -127,8 +127,8 @@ final class Application {
                                  $model_file = MODEL_PATH.'/'.self::$_config['route']['default_controller'].'Model.php';
                         }
                 }
-                if(isset($url_array['action'])){
-                        $action = $url_array['action'];
+                if(isset($url_array['a'])){
+                        $action = $url_array['a'];
                 }else{
                         $action = self::$_config['route']['default_action'];
                 }
