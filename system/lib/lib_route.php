@@ -56,7 +56,7 @@ final class Route{
                 print_r(' arr is found 0.0 ');
                 print_r($arr);
                 print_r(' url_query is found 0.0 ');
-                print_r($url_query);
+                print_r($this->url_query);
                 $array = $tmp = array();
                 if (count($arr) > 0) {
                         foreach ($arr as $item) {
