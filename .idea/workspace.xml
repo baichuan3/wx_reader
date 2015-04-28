@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="homeController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="homeController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/homeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="45" selection-start="980" selection-end="980" vertical-scroll-proportion="-11.875" vertical-offset="195" max-vertical-offset="630">
+            <state line="28" column="31" selection-start="842" selection-end="842" vertical-scroll-proportion="0.81840193" vertical-offset="82" max-vertical-offset="630">
               <folding />
             </state>
           </provider>
@@ -41,12 +41,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="home.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="14" selection-start="38" selection-end="38" vertical-scroll-proportion="0.07263923" vertical-offset="0" max-vertical-offset="413">
+            <state line="7" column="46" selection-start="278" selection-end="278" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="285">
               <folding>
-                <marker date="1430192280000" expanded="true" signature="268:514" placeholder="..." />
+                <marker date="1430192338000" expanded="true" signature="277:523" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -102,7 +102,7 @@
       <file leaf-file-name="controller.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system/core/controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="33" selection-start="1684" selection-end="1684" vertical-scroll-proportion="-8.458333" vertical-offset="592" max-vertical-offset="1005">
+            <state line="53" column="33" selection-start="1684" selection-end="1684" vertical-scroll-proportion="-12.208333" vertical-offset="502" max-vertical-offset="1005">
               <folding />
             </state>
           </provider>
@@ -130,8 +130,8 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/system/lib/lib_route.php" />
         <option value="$PROJECT_DIR$/system/app.php" />
-        <option value="$PROJECT_DIR$/controller/homeController.php" />
         <option value="$PROJECT_DIR$/view/home.php" />
+        <option value="$PROJECT_DIR$/controller/homeController.php" />
       </list>
     </option>
   </component>
@@ -445,15 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="57" selection-start="767" selection-end="767" vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="780">
-          <folding>
-            <element signature="e#6#135#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="257" selection-end="257" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="285">
@@ -475,26 +466,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="46" selection-start="278" selection-end="278" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="285">
+          <folding>
+            <marker date="1430192338000" expanded="true" signature="277:523" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/system/core/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="33" selection-start="1684" selection-end="1684" vertical-scroll-proportion="-8.458333" vertical-offset="592" max-vertical-offset="1005">
+        <state line="53" column="33" selection-start="1684" selection-end="1684" vertical-scroll-proportion="-12.208333" vertical-offset="502" max-vertical-offset="1005">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="57" selection-start="767" selection-end="767" vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="780">
+          <folding>
+            <element signature="e#6#135#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/homeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="45" selection-start="980" selection-end="980" vertical-scroll-proportion="-11.875" vertical-offset="195" max-vertical-offset="630">
+        <state line="28" column="31" selection-start="842" selection-end="842" vertical-scroll-proportion="0.81840193" vertical-offset="82" max-vertical-offset="630">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="14" selection-start="38" selection-end="38" vertical-scroll-proportion="0.07263923" vertical-offset="0" max-vertical-offset="413">
-          <folding>
-            <marker date="1430192280000" expanded="true" signature="268:514" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>

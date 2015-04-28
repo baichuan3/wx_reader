@@ -26,11 +26,11 @@ class homeController extends Controller {
         public function run() {
 //            $object = $this->load('download',FALSE);
 //            var_dump($object);
-//              print('php run');
-//              exit();
-            arr = array();
-            $arr['name'] = 'baichuan';
-            $this->showTemplate('home', arr);
+              print('php run');
+              exit();
+//            arr = array();
+//            $arr['name'] = 'baichuan';
+//            $this->showTemplate('home', arr);
         }
 }
 
