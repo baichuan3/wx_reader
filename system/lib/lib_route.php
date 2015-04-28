@@ -56,7 +56,8 @@ final class Route{
                 print_r(' arr is found 0.0 ');
                 print_r($arr);
                 print_r(' url_query is found 0.0 ');
-                print_r($this->url_query);
+                print_r($this->url_query['query']);
+                print_r($this->url_query['PATH_INFO']);
                 $arr2 = !empty ($this->url_query['PATH_INFO']) ?explode('&', $this->url_query['PATH_INFO']) :array();
                 print_r($arr2);
                 $array = $tmp = array();
