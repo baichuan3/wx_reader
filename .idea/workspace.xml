@@ -53,7 +53,7 @@
       <file leaf-file-name="homeController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/homeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="34" selection-start="396" selection-end="396" vertical-scroll-proportion="-3.0" vertical-offset="153" max-vertical-offset="585">
+            <state line="15" column="34" selection-start="396" selection-end="396" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="585">
               <folding />
             </state>
           </provider>
@@ -89,7 +89,7 @@
       <file leaf-file-name="lib_route.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/system/lib/lib_route.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="38" selection-start="1927" selection-end="1927" vertical-scroll-proportion="0.64646465" vertical-offset="723" max-vertical-offset="1560">
+            <state line="92" column="26" selection-start="3273" selection-end="3273" vertical-scroll-proportion="0.5555556" vertical-offset="1215" max-vertical-offset="1545">
               <folding />
             </state>
           </provider>
@@ -433,30 +433,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/my_test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="57" selection-start="767" selection-end="767" vertical-scroll-proportion="3.7916667" vertical-offset="421" max-vertical-offset="705">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system/core/controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="6" selection-start="141" selection-end="141" vertical-scroll-proportion="10.125" vertical-offset="348" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/homeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="34" selection-start="396" selection-end="396" vertical-scroll-proportion="-3.0" vertical-offset="153" max-vertical-offset="585">
           <folding />
         </state>
       </provider>
@@ -482,9 +461,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="57" selection-start="767" selection-end="767" vertical-scroll-proportion="3.7916667" vertical-offset="421" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/my_test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/homeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="34" selection-start="396" selection-end="396" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/system/lib/lib_route.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="38" selection-start="1927" selection-end="1927" vertical-scroll-proportion="0.64646465" vertical-offset="723" max-vertical-offset="1560">
+        <state line="92" column="26" selection-start="3273" selection-end="3273" vertical-scroll-proportion="0.5555556" vertical-offset="1215" max-vertical-offset="1545">
           <folding />
         </state>
       </provider>

@@ -91,7 +91,6 @@ final class Route{
             $arr = !empty ($this->url_query['query']) ?explode('&', $this->url_query['query']) :array();
             print_r(' arr is found ');
             print_r($arr);
-            url_query
         }
 }
 
