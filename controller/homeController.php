@@ -28,7 +28,9 @@ class homeController extends Controller {
 //            var_dump($object);
 //              print('php run');
 //              exit();
-            $this->showTemplate('home');
+            arr = array();
+            $arr['name'] = 'baichuan';
+            $this->showTemplate('home', arr);
         }
 }
 
