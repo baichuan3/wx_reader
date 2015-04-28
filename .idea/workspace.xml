@@ -89,7 +89,7 @@
       <file leaf-file-name="lib_route.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/system/lib/lib_route.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="26" selection-start="3273" selection-end="3273" vertical-scroll-proportion="0.5555556" vertical-offset="1215" max-vertical-offset="1545">
+            <state line="24" column="45" selection-start="711" selection-end="711" vertical-scroll-proportion="0.5555556" vertical-offset="195" max-vertical-offset="1575">
               <folding />
             </state>
           </provider>
@@ -98,7 +98,7 @@
       <file leaf-file-name="standard_2.php" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="468" column="9" selection-start="14128" selection-end="14128" vertical-scroll-proportion="-4.25" vertical-offset="6918" max-vertical-offset="15885">
+            <state line="468" column="9" selection-start="14128" selection-end="14128" vertical-scroll-proportion="-8.291667" vertical-offset="6821" max-vertical-offset="15885">
               <folding />
             </state>
           </provider>
@@ -447,13 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="468" column="9" selection-start="14128" selection-end="14128" vertical-scroll-proportion="-4.25" vertical-offset="6918" max-vertical-offset="15885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="42" selection-start="1161" selection-end="1161" vertical-scroll-proportion="-3.6" vertical-offset="330" max-vertical-offset="2625">
@@ -482,9 +475,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="468" column="9" selection-start="14128" selection-end="14128" vertical-scroll-proportion="-8.291667" vertical-offset="6821" max-vertical-offset="15885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/system/lib/lib_route.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="26" selection-start="3273" selection-end="3273" vertical-scroll-proportion="0.5555556" vertical-offset="1215" max-vertical-offset="1545">
+        <state line="24" column="45" selection-start="711" selection-end="711" vertical-scroll-proportion="0.5555556" vertical-offset="195" max-vertical-offset="1575">
           <folding />
         </state>
       </provider>
