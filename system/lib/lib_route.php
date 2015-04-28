@@ -7,13 +7,20 @@
  */
 final class Route{
         public $url_query;
+        public $path_info;
         public $url_type;
         public $route_url = array();
 
 
         public function __construct() {
                 $this->url_query = parse_url($_SERVER['REQUEST_URI']);
-                $this->url_query = parse_url($_SERVER['PATH_INFO']);
+//                $this->path_info = pathinfo($_SERVER['PATH_INFO']);
+
+                if( !isset( $_SERVER['PATH_INFO'] ) ){
+                    $this->path_info = 'default';
+                }else{
+                    $this->path_info =  explode('/', $_SERVER['PATH_INFO']);
+                }
         }
         /**
          * 设置URL类型
@@ -58,8 +65,8 @@ final class Route{
                 print_r(' arr is found 0.0 ');
                 print_r($arr);
                 print_r(' PATH_INFO is found 0.0 ');
-                $arr2 = !empty ($this->url_query['path']) ?explode('&', $this->url_query['path']) :array();
-                print_r($arr2);
+//                $arr2 = !empty ($this->path_info['path']) ?explode('&', $this->path_info['path']) :array();
+                print_r($this->path_info);
                 $array = $tmp = array();
                 if (count($arr) > 0) {
                         foreach ($arr as $item) {
