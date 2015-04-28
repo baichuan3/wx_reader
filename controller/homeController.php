@@ -14,7 +14,7 @@ class homeController extends Controller {
         public function index() {
                 $object = $this->load('download',FALSE);
                 print('php index');
-                var_dump($object);
+//                var_dump($object);
                 exit();
 //
 //                $object->set_byfile('http://localhost/framework/error/2011-12-28_SQL.txt');//服务器文件名,包括路径

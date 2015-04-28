@@ -29,7 +29,7 @@ final class Route{
         public function setUrlType($url_type = 2){
                 if($url_type > 0 && $url_type <3){
                         $this->url_type = $url_type;
-                          print_r(' url type= '.$url_type);
+//                          print_r(' url type= '.$url_type);
                 }else{
                         trigger_error("指定的URL模式不存在！");
                 }
