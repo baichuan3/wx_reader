@@ -26,8 +26,9 @@ class homeController extends Controller {
         public function run() {
 //            $object = $this->load('download',FALSE);
 //            var_dump($object);
-              print('php run');
-              exit();
+//              print('php run');
+//              exit();
+            $this->showTemplate('home');
         }
 }
 
