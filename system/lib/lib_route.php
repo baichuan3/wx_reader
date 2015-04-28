@@ -16,7 +16,7 @@ final class Route{
                 $this->url_query = parse_url($_SERVER['REQUEST_URI']);
 //                $this->path_info = pathinfo($_SERVER['PATH_INFO']);
 
-                if( !isset( $_SERVER['PATH_INFO'] ) ){
+                if( !isset( $_SERVER['PATH_INFO']) ){
                     $this->path_info = 'default';
                 }else{
                     $this->path_info =  explode('/', $_SERVER['PATH_INFO']);
@@ -62,11 +62,11 @@ final class Route{
          */
         public function querytToArray(){
                 $arr = !empty ($this->url_query['query']) ?explode('&', $this->url_query['query']) :array();
-                print_r(' arr is found 0.0 ');
-                print_r($arr);
-                print_r(' PATH_INFO is found 0.0 ');
+//                print_r(' arr is found 0.0 ');
+//                print_r($arr);
+//                print_r(' PATH_INFO is found 0.0 ');
 //                $arr2 = !empty ($this->path_info['path']) ?explode('&', $this->path_info['path']) :array();
-                print_r($this->path_info);
+//                print_r($this->path_info);
                 $array = $tmp = array();
                 if (count($arr) > 0) {
                         foreach ($arr as $item) {

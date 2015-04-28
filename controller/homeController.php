@@ -13,7 +13,7 @@ class homeController extends Controller {
 
         public function index() {
                 $object = $this->load('download',FALSE);
-                print('php run run');
+                print('php index');
                 var_dump($object);
                 exit();
 //
