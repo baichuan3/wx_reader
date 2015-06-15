@@ -1,0 +1,31 @@
+.detail_hd {
+    height: 43px;
+    line-height: 43px;
+    border-bottom: 1px solid #d9d9d9;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.back_btn {
+    width: 60px;
+    height: 32px;
+    line-height: 32px;
+    left: 10px;
+    text-indent: 4px;
+    top: 5px;
+    background-image: url(http://s.koudai.com/images/common/png_8.png?v=531);
+    background-size: 100px;
+    position: absolute;
+}
+
+.detail_hd_title {
+    height: 43px;
+    line-height: 43px;
+    border-bottom: 1px solid #d9d9d9;
+    background-color: #fff;
+}
+
+a {
+    border-bottom:0px;
+}

@@ -1,0 +1,47 @@
+li,ul,dl,dd,dt,h1,h2,h3,h4,p,div,body,html{margin: 0;padding: 0;}
+img {border: none;}
+
+.body {font-family: "Microsoft Yahei","Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti !important;}
+.sec {position: relative;}
+.sec-top {background: #515151;}
+.sec-a {background: #31424e;}
+.sec-b {background: #febdc6;}
+.sec-c {background: #e7e7e7;}
+.sec-d {background: #3bc8f5;}
+.sec-e {background: #fbd06f;}
+.imgwrap {min-width: 1024px;max-width: 2048px;font-size: 0;line-height: 0;position: relative;z-index:1;}
+.imgwrap img {width: 100%;}
+
+.conwrap {min-width: 1024px;max-width: 2048px;position: relative;z-index: 3;}
+.logo {position: absolute;left:130px;top:93px;font-size:0;z-index: 5;}
+.logo img {width: 100%;}
+
+.downs {position: absolute;z-index: 5;}
+.downs-top {top:446px;left:776px;}
+.downs a {display: inline-block;width:308px;height: 95px;margin-right: 10px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;}
+.downs a.iphone {background: url(../image/down-iphone.png) center top no-repeat;background-size: contain;background: none\9;*background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../image/iphone.png',sizingMethod='scale');}
+.downs a.android {background: url(../image/down-android.png) center top no-repeat;background-size: contain;margin-top:10px;background: none\9;*background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../image/down-android.png',sizingMethod='scale');}
+.downs a.iphone:hover {background: url(../image/down-iphone.png) center top no-repeat; background-size: contain;background: none\9;*background: none;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../image/down-iphone.png',sizingMethod='scale');}
+.downs a.android:hover {background: url(../image/down-android.png) center top no-repeat;background-size: contain;background: none\9;*background: none;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../image/down-android.png',sizingMethod='scale'); }
+
+.downs-btm {top:351px;left:776px;}
+.downs-btm a {float: left; margin-right:61px;}
+.downs-btm a.android {margin-top:0;}
+
+.info {position:absolute; top:0;left:0;z-index: 4; width:100%; text-align: center;padding-top:527px;}
+.info p {font-size:20px;color:#3c3c3c;line-height: 1.4;padding-left:160px;}
+.info p a {color: #3c3c3c;text-decoration: none;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+.info p span {color:#3c3c3c;margin:0 10px;}
+.info p a:hover {color:#3c3c3c;}
+
+.weixin {position:absolute; top:446px; left:1112px;z-index: 4;width: 200px;}
+.weixin img {width: 100%}

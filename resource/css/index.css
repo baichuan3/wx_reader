@@ -1,0 +1,300 @@
+::selection {
+    background:#dd4543;
+    color:#fff;
+}
+
+::-moz-selection {
+    background:#dd4543;
+    color:#fff;
+}
+
+::-webkit-selection {
+    background:#dd4543;
+    color:#fff;
+}
+
+
+body{
+    min-width: 1003px;
+    max-width: 1600px;
+    padding: 0;
+    margin: 0 auto;
+    font-family: "寰蒋闆呴粦", "榛戜綋-绠€","Microsoft Yahei";
+}
+.index_win{
+    min-width: 1003px;
+    max-width: 1600px;
+    background: transparent url("/resource/img/G_1440x900.jpg") no-repeat 50% -1px;
+}
+.index_header{
+    width: 1003px;
+    margin: 0 auto;
+    height: 724px;
+}
+.index_logo{
+    height: 80px;
+    position: relative;
+    top:45px;
+}
+.weimi_web{
+    float:right;
+    position: relative;
+    top:-4px;
+    width: 159px;
+    height: 51px;
+    cursor: pointer;
+    background: transparent url("/resource/img/wy_u_.png") no-repeat 0 0;
+}
+.weimi_web:hover{
+    background: transparent url("/resource/img/wy_d_.png") no-repeat 0 0;
+}
+.index_text{
+    margin-top:131px;
+}
+h1,h2{margin:0;font-size:40px;}
+.index_text h1{
+    letter-spacing:-4px;
+}
+.index_text h2{
+    letter-spacing:10px;
+    font-weight:normal;
+
+}
+.index_button{
+    margin-top: 30px;
+}
+.index_btn{
+    display: inline-block;
+    margin-right: 25px;
+}
+.index_btn p{
+    margin-top: 0;
+    color: #fff;
+    text-align:center;
+}
+.ios_download{
+    display: block;
+    width: 180px;
+    height: 59px;
+    cursor: pointer;
+    background: transparent url("/resource/img/i_down.png") no-repeat 0 0;
+    transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -webkit-transition: background 0.5s;
+    -o-transition: background 0.5s;
+}
+.ios_download:hover{
+    background: transparent url("/resource/img/i_down_.png") no-repeat 0 0;
+}
+.android_download{
+    display: block;
+    width: 180px;
+    height: 59px;
+    cursor: pointer;
+    background: transparent url("/resource/img/an_u2_.png") no-repeat 0 0;
+    transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -webkit-transition: background 0.5s;
+    -o-transition: background 0.5s;
+}
+.android_download:hover{
+    background: transparent url("/resource/img/an_d2_.png") no-repeat 0 0;
+}
+.index_qr{
+    margin-top: 50px;
+    color: #fff;
+    font-size: 16px;
+}
+.index_qr img{
+    background-color: #fff;
+    padding: 3px;
+    width: 130px;
+}
+.index_qr p{
+    margin-top: 0;
+}
+.index_pics{
+    width:211px;
+    height:375px;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    left:638px;
+    bottom:427px;
+}
+.index_pictures{
+    width: 932px;
+    height:375px;
+    padding: 0;
+    margin: 0;
+}
+.index_pics img{
+    width:213px;
+    height:375px;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+
+.index_content_w, .index_content_g{
+    min-width: 1003px;
+    max-width: 1600px;
+    height: 618px;
+}
+.index_content_w{
+    background-color: #fff;
+}
+.index_content_g{
+    background-color: rgba(246, 246, 246, 1);
+}
+.index_content_1{
+    background: transparent url("/resource/img/1.jpg") no-repeat 50% 0;
+}
+.index_content_2{
+    background: transparent url("/resource/img/2_.png") no-repeat 50% 0;
+}
+.index_content_3{
+    background: transparent url("/resource/img/3_.jpg") no-repeat 50% 0;
+}
+.index_content_4{
+    background: transparent url("/resource/img/4.jpg") no-repeat 50% 0;
+}
+.content{
+    width: 1003px;
+    margin: 0 auto;
+}
+.content span{
+    font-size: 30px;
+    font-weight: bold;
+}
+.content p{
+    font-size: 14px;
+    line-height: 14px;
+    position: relative;
+    top: 20px;
+}
+.text1{
+    position: relative;
+    top: 305px;
+    margin-left: 540px;
+}
+.text2{
+    position: relative;
+    top: 270px;
+    margin-left: 0;
+
+}
+.text3{
+    position: relative;
+    top: 290px;
+    margin-left: 540px;
+}
+.text4{
+    position: relative;
+    top: 285px;
+    margin-left: 0;
+    left:17px;
+}
+
+.nav_list{
+    position: absolute;
+    right: 51px;
+    top: 248px;
+}
+.nav_item{
+    list-style: none;
+    height:22px;
+}
+.nav_item a{
+    display: block;
+    line-height: 30px;
+    height: 30px;
+    width: 80px;
+    text-align: right;
+    background: transparent url("/resource/img/d__.png") 100% 50% no-repeat;
+}
+.nav_item1 a:hover{
+    background: transparent url("/resource/img/d_1_.png") 100% 50% no-repeat;
+}
+.nav_item2 a:hover{
+    background: transparent url("/resource/img/d_2_.png") 100% 50% no-repeat;
+}
+.nav_item3 a:hover{
+    background: transparent url("/resource/img/d_3_.png") 100% 50% no-repeat;
+}
+.nav_item4 a:hover{
+    background: transparent url("/resource/img/d_4_.png") 100% 50% no-repeat;
+}
+.nav_item5 a:hover{
+    background: transparent url("/resource/img/d_5_.png") 100% 50% no-repeat;
+}
+
+
+.footer{
+    height: 425px;
+    min-width: 1003px;
+    max-width: 1600px;
+    background: #fff url("/resource/img/footer-title_.png") no-repeat 50% 85px;
+    color: #525252;
+    font-size: 12px;
+}
+.footer_btns{
+    text-align: center;
+    padding-top: 185px;
+}
+.footer_ios{
+    display: inline-block;
+    width: 181px;
+    height: 59px;
+    margin-right: 16px;
+    cursor: pointer;
+    background: transparent url("/resource/img/ip_footer.png") no-repeat 0 0;
+    transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -webkit-transition: background 0.5s;
+    -o-transition: background 0.5s;
+}
+.footer_android{
+    display: inline-block;
+    width: 180px;
+    height: 59px;
+    margin-left: 16px;
+    cursor: pointer;
+    background: transparent url("/resource/img/an_footer.png") no-repeat 0 0;
+    transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -webkit-transition: background 0.5s;
+    -o-transition: background 0.5s;
+}
+.footer_ios:hover{
+    background: transparent url("/resource/img/iph-f1.png") no-repeat 0 0;
+}
+.footer_android:hover{
+    background: transparent url("/resource/img/an_d2_.png") no-repeat 0 0;
+}
+.footer_links{
+    text-align: center;
+    margin-top: 60px;
+}
+.footer_link{
+    cursor: pointer;
+    text-decoration: none;
+    color: rgba(82, 82, 82, 1);
+}
+.footer_seperate{
+    margin: 0 10px;
+}
+.footer_link:hover{
+    color: #f20c4d;
+}
+.footer_copyright{
+    text-align: center;
+    line-height: 8px;
+    margin-top: 25px;
+    color:#525252;
+}
+/*淇敼棣栭〉 "杩涘叆缃戦〉鐗�" */
+.index_logo p{float:right; width:250px;color:#fff;font-size:18px;margin:18px 0;}
+.index_logo p a{color:#fff;padding:0 20px;text-decoration:none;}
+.index_logo p a:hover{color:#F20C4D;}

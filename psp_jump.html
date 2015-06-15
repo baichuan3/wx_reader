@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head><body><script type="text/javascript">
+(function(){
+		var queryStr = location.search.substring(1).split('&'),oneQueryStr,args = {},g = top,scope = top ,callback;
+		for(var i in queryStr){
+			oneQueryStr = queryStr[i].split('=');
+			if(!callback && oneQueryStr[0] == 'fun'){
+				callback = oneQueryStr[1];
+			};
+			if(oneQueryStr[0]&&oneQueryStr[1]){
+				args[oneQueryStr[0]] = (oneQueryStr[1]||'').replace(/[><'"{}]/g, '');
+			}
+
+		}
+		callback = callback.split('.');
+
+		if( callback[0] === 'document' 
+			|| callback[0] === 'location' 
+			|| callback[0] === 'alert'){
+		}else{
+			for(var i = 0,len= callback.length;i<len;i++){
+				if(i==0 && callback[0]=="parent"){
+					g = parent;
+					scope = parent;
+				}else if(i==0 && callback[0]=="top"){
+					g = top;
+					scope = top;
+				}else{
+					if(i<len-1){
+						scope = scope[callback[i]];
+					}
+					g = g[callback[i]];
+				}
+			}
+
+			g.call(scope,args);
+		}
+	
+})();
+</script>
+</body></html>
