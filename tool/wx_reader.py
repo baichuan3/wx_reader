@@ -145,37 +145,7 @@ def get_account_data(account_page_url):
     except:
             print("get_account_data Unexpected error:", sys.exc_info()[0])
             print("get_account_data Unexpected error: trace ", traceback.format_exc())
-            # return ''
-
-def parse_args():
-    parser = argparse.ArgumentParser(description='Scrawler wx account data.')
-    parser.add_argument('--workers', type=int, default=1, help='number of workers to use, 8 by default.')
-    return parser.parse_args()
-
-def start_tasks(options):
-     # account_page_urls = get_account_page_urls()
-    # pool = Pool(options.workers)
-    # pool.map(get_account_data, account_page_urls)
-    
-    #single thread
-     while True:
-        account_page_urls = get_account_page_urls()
-        for account_page_url in account_page_urls:
-            get_account_data(account_page_url)
-            #anti block
-            sleep(60 + random.randint(10,300))
-        
-        #随机一段时间，重新抓取
-        #anti block
-        sleep(random.randint(6,15)*60*60)
-    
-def get_regex_value(regex, html, index):
-    try:
-        return regex.search(html).group(index)
-    except:
-        print("get_regex_value Unexpected error:", sys.exc_info()[0])
-        return ''
-        
+            # return ''        
         
 def insert_data(account_data):
     cur = conn.cursor()
@@ -219,6 +189,13 @@ def query_one_data(openid):
     conn.commit()
     
     return mid
+    
+def get_regex_value(regex, html, index):
+    try:
+        return regex.search(html).group(index)
+    except:
+        print("get_regex_value Unexpected error:", sys.exc_info()[0])
+        return ''
 
 def get_logger():  
     # 创建一个logger,可以考虑如何将它封装  
@@ -245,6 +222,29 @@ def get_logger():
     # 记录一条日志  
     logger.info('hello world, i\'m log helper in python, may i help you')  
     return logger  
+
+def parse_args():
+    parser = argparse.ArgumentParser(description='Scrawler wx account data.')
+    parser.add_argument('--workers', type=int, default=1, help='number of workers to use, 8 by default.')
+    return parser.parse_args()
+
+def start_tasks(options):
+     # account_page_urls = get_account_page_urls()
+    # pool = Pool(options.workers)
+    # pool.map(get_account_data, account_page_urls)
+    
+    #single thread
+     while True:
+        account_page_urls = get_account_page_urls()
+        for account_page_url in account_page_urls:
+            get_account_data(account_page_url)
+            #anti block
+            sleep(60 + random.randint(10,300))
+        
+        #随机一段时间，重新抓取
+        #anti block
+        sleep(random.randint(6,15)*60*60)
+    
 
 if __name__ == '__main__':
     reload(sys)
