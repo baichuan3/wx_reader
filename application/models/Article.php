@@ -58,4 +58,18 @@ class ArticleModel {
        return $str;
     }
 
+    public static function articleTotalCount()
+    {/*{{{*/
+        $sql = " select count(*) as total_count from wx_reader ";
+//        print_r($sql);
+        $db_data = Yaf_Registry::get("db")->Fetch($sql);
+
+        $total_count = 0;
+        if($db_data){
+            $total_count = intval($db_data["total_count"]);
+        }
+
+        return $total_count;
+    }/*}}}*/
+
 }
