@@ -88,6 +88,9 @@ def get_account_page_urls():
 def get_current_timestamp():
     return (str)((long)(time.time()*1000))
     
+def format_current_timestamp():
+    return time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
+    
 def get_account_data(account_page_url):
     try:
         account_data = {}
@@ -118,7 +121,7 @@ def get_account_data(account_page_url):
             mid  = get_regex_value(r_mid, url, 1)
             
             if((long)(mid) <= (long)(max_mid)):
-                print sourcename  , '''has no new article, so break'''
+                print format_current_timestamp() + " " + sourcename  , '''has no new article, so break'''
                 break
         
             account_data["headimage"] = headimage
@@ -143,8 +146,8 @@ def get_account_data(account_page_url):
 
             # return account_data
     except:
-            print("get_account_data Unexpected error:", sys.exc_info()[0])
-            print("get_account_data Unexpected error: trace ", traceback.format_exc())
+            print(format_current_timestamp() + " " + "get_account_data Unexpected error:", sys.exc_info()[0])
+            print(format_current_timestamp() + " " + "get_account_data Unexpected error: trace ", traceback.format_exc())
             # return ''        
         
 def insert_data(account_data):
@@ -167,7 +170,7 @@ def insert_data(account_data):
     sql = sql + ") on duplicate key update created_at=" + get_current_timestamp()
     sql = sql + ", last_modified=" + (account_data["last_modified"])
     
-    print sql
+    print format_current_timestamp() + " " + sql
     cur.execute(sql)
 
     cur.close()
@@ -194,7 +197,7 @@ def get_regex_value(regex, html, index):
     try:
         return regex.search(html).group(index)
     except:
-        print("get_regex_value Unexpected error:", sys.exc_info()[0])
+        print(format_current_timestamp() + " " + "get_regex_value Unexpected error:", sys.exc_info()[0])
         return ''
 
 def get_logger():  
