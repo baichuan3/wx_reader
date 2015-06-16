@@ -24,6 +24,8 @@ class ArticleModel {
 
                 $data_info["account_url"] = "http://weixin.sogou.com/gzh?openid=" . $da_data_info["openid"];
                 $data_info["time"] = ArticleModel::transTime($da_data_info["last_modified"]);
+                $data_info["headimage"] = "http://img01.store.sogou.com/net/a/04/link?appid=100520031&url=" . $da_data_info["headimage"];
+                $data_info["imglink"] = "http://img01.store.sogou.com/net/a/04/link?appid=100520031&url=" . $da_data_info["imglink"];
 
                 $arr[$i] = $data_info;
                 $i++;

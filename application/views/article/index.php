@@ -42,7 +42,7 @@
             <div class="feed_item_photo">
                 <div>
                     <a href="<?php echo $article['account_url']; ?>">
-                        <img class="profile_photo_img" src="<?php echo $article['imglink']; ?>" width="50"
+                        <img class="profile_photo_img" src="<?php echo $article['headimage']; ?>" width="50"
                              alt="<?php echo $article['sourcename']; ?>" height="50">
                     </a>
                 </div>
@@ -58,8 +58,6 @@
 <span class="timestamp">
 <?php echo $article['time']; ?>
 </span>
-.
-<span class="timestamp"><a style="color: #999" href="#;" onclick="window.open('http://service.weibo.com/share/share.php?url=http://chuansong.me/n/1457159&amp;title=【创业者如何高质量社交，融入更优质圈子】本文主要针对创业者如何高效、有效的社交，希望对准备创业和早期创业者有帮助。&amp;appkey=2919864620&amp;ralateUid=2454002513', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'weibo.com');" class="tb">分享</a></span>
 </span>
             </strong>
             <div class="home_feed_item_row">
