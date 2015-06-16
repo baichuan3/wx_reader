@@ -116,7 +116,9 @@ def get_account_data(account_page_url):
             # print item_xml_data
             # print account_data
             insert_data(account_data)
-            sleep( random.choice(range(12)) )
+            # sleep( random.choice(range(12)) )
+            #anti block
+            sleep(60 + random.randint(10,300))
             print "\r\n"
 
             # return account_data

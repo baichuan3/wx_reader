@@ -585,6 +585,7 @@ a.feed_load_new_button:hover {
 
 .logged_out_home .contents, .signup_page .contents {
     padding: 0 10px;
+    /*width: 880px*/
     width: 705px
 }
 
