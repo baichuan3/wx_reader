@@ -8,9 +8,9 @@
 
     <link rel="shortcut icon" href="/resource/image/favicon.ico">
 
-    <title>传送门 -- 微信公众账号和文章的导航及推荐</title>
-    <meta name="keywords" content="传送门,微信公众平台,公众平台,微信公众账号导航,微信公众账号列表,公众账号,公众账号导航,公众账号列表,二维码,微信二维码,微信推送,微信,微信传送门" />
-    <meta name="description" content="微信公众账号导航及推荐,在线阅读微信公众账号推送的文章,微信公众账号文章的展示及推荐,传送门chuansong.me" />
+    <title>白川阅读 -- 微信公众账号和文章的导航及推荐</title>
+    <meta name="keywords" content="微信公众平台,公众平台,微信公众账号导航,微信公众账号列表,公众账号,公众账号导航,公众账号列表,二维码,微信二维码,微信推送,微信" />
+    <meta name="description" content="微信公众账号导航及推荐,在线阅读微信公众账号推送的文章,微信公众账号文章的展示及推荐" />
 
 </head>
 <body>
@@ -86,65 +86,68 @@
 </div>
 <div class="w4_5" style="text-align: center;">
 
+    <?php
+        $start = intval($start);
+        $count = intval($count);
+        $total_count = intval($total_count);
+        if(($start - $count) < 0){
+       ?>
+            <div style="float: left">上一页</div>
+       <?php
+        }else{
+       ?>
+            <a href="/article/list?start=<?php echo ($start - $count);  ?>" style="float: left">上一页</a>
+        <?php
+        }
+    ?>
 
-    <div style="float: left">上一页</div>
 
 <span style="font-size: 1em;font-weight: bold">
 
-
-
-<strong>1</strong>
-
-&nbsp;
-
-
-<a href="/article/list?start=25">2</a>
-
-&nbsp;
-
-
-<a href="/article/list?start=50">3</a>
-
-&nbsp;
-
-
-<a href="/article/list?start=75">4</a>
-
-&nbsp;
-
-
-<a href="/article/list?start=100">5</a>
-
-&nbsp;
-
-
-<a href="/article/list?start=125">6</a>
-
-&nbsp;
-
-
-<a href="/article/list?start=150">7</a>
-
-&nbsp;
-
-
-<a href="/article/list?start=175">8</a>
-
-&nbsp;
-
-
-
-<strong>...</strong>
-&nbsp;
-
-<a href="/article/list?start=950">39</a>
-&nbsp;
-<a href="/article/list?start=975">40</a>
+    <?php
+        $page = 1;
+        $middle_page=10;
+//        $total_count = intval($total_count);
+//        $count = intval($count);
+        $total_page = intval(ceil(floatval($total_count) / $count));
+        for(;(($page-1) * $count < $total_count); $page++){
+            if($total_page <= $middle_page){
+           ?>
+                <a href="/article/list?start=<?php echo (($page - 1) * $count);  ?>"><?php echo $page;  ?></a>
+                &nbsp;
+           <?php
+            }else{
+                if(($page <= ($middle_page-2)) || ($page >= ($total_page - 1))){
+               ?>
+                    <a href="/article/list?start=<?php echo (($page-1) * $count);  ?>"><?php echo $page;  ?></a>
+                    &nbsp;
+               <?php
+                }else{
+               ?>
+                    <strong>...</strong>
+                <?php
+                }
+            }
+         }
+    ?>
 
 </span>
 
 
-    <a href="/article/list?start=25" style="float: right">下一页</a>
+    <?php
+    //$start = intval($start);
+//    $count = intval($count);
+//    $total_count = intval($total_count);
+    if(($start + $count) > $total_count){
+        ?>
+        <div style="float: right">下一页</div>
+    <?php
+    }else{
+        ?>
+        <a href="/article/list?start=<?php echo ($start + $count);  ?>" style="float: right">下一页</a>
+    <?php
+    }
+    ?>
 
 
 </div>

@@ -74,7 +74,7 @@ def get_current_timestamp():
 def get_account_data(account_page_url):
     try:
         account_data = {}
-	headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0'}
+        headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0'}
         response = requests.get(account_page_url, headers=headers)
         # soup = bs4.BeautifulSoup(response.text)
         req_json = get_regex_value(r_req_data, response.text, 1)
@@ -122,8 +122,7 @@ def get_account_data(account_page_url):
             # return account_data
     except:
             print("get_account_data Unexpected error:", sys.exc_info()[0])
-	    #logger.exception("Exception Logged")
-	    print(traceback.format_exc())
+            print("get_account_data Unexpected error: trace ", traceback.format_exc())
             # return ''
 
 def parse_args():
