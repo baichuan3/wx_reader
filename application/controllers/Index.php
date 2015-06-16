@@ -8,7 +8,7 @@
 class IndexController extends BaseController {
     public function indexAction()
     {/*{{{*/
-        $this->forward('lottory','index');
+        $this->forward('article','list');
         return false;
     }/*}}}*/
 	
