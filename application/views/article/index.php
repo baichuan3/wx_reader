@@ -107,6 +107,7 @@
     <?php
         $page = 1;
         $middle_page=10;
+        $more_count=0;
 //        $total_count = intval($total_count);
 //        $count = intval($count);
         $total_page = intval(ceil(floatval($total_count) / $count));
@@ -123,9 +124,12 @@
                     &nbsp;
                <?php
                 }else{
-               ?>
-                    <strong>...</strong>
-                <?php
+                    if($more_count < 2){
+                       $more_count++;
+                   ?>
+                        <strong>...</strong>
+                   <?php
+                    }
                 }
             }
          }
