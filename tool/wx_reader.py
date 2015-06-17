@@ -242,7 +242,7 @@ def start_tasks(options):
         for account_page_url in account_page_urls:
             get_account_data(account_page_url)
             #anti block
-            sleep(60 + random.randint(10,300))
+            sleep(120 + random.randint(120,400))
         
         #随机一段时间，重新抓取
         #anti block
