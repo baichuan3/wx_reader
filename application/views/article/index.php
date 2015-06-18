@@ -124,10 +124,10 @@
                     &nbsp;
                <?php
                 }else{
-                    if($more_count < 2){
+                    if($more_count < 1){
                        $more_count++;
                    ?>
-                        <strong>...</strong>
+                        <strong>...</strong>&nbsp;
                    <?php
                     }
                 }
