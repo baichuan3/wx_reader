@@ -245,8 +245,9 @@ def start_tasks(options):
             sleep(120 + random.randint(30,300))
         
         #随机一段时间，重新抓取
+        #mysql 连接超过8小时不使用，会报异常mysql server has gone
         #anti block
-        sleep(random.randint(3,10)*60*60)
+        sleep(random.randint(3,7)*60*60)
 
 if __name__ == '__main__':
     reload(sys)
