@@ -113,7 +113,7 @@ def get_account_data(openid):
             r'SogouEncrypt.setKv\("(\w+)","(\d)"\)'
             r'.*?'
             # r'SogouEncrypt.encryptquery\("(\w+)","(\w+)"\)'
-            r'SogouEncrypt.encryptquery\("(\w+)[\s\S]?","(\w+)"\)'
+            r'SogouEncrypt.encryptquery\("([\w-]+)[\s\S]?","(\w+)"\)'
         )
         m = re.findall(pattern, resp.text, re.S)
         # print m
