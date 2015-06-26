@@ -9,12 +9,15 @@ import bs4
 import time
 from time import sleep
 import xml.etree.ElementTree as ET
-import re
 import sys
 import json
 import MySQLdb
 import random
 import traceback
+import base64
+from Crypto.Cipher import AES
+from requests.compat import bytes, str
+from urllib import quote
 
 #待爬取的urls
 
@@ -61,7 +64,8 @@ user_agents=[
 r_req_data = re.compile(r"sogou.weixin.gzhcb\((.*)\)")
 r_mid = re.compile(r"mid=([0-9]+)")
 r_openid = re.compile(r"openid=(.+?)&")
-
+SITE_BASE = 'http://weixin.sogou.com/gzh?openid='
+INDEX_BASE = 'http://weixin.sogou.com/gzhjs?cb=sogou.weixin.gzhcb&page=1&openid='
 
 
 conn= MySQLdb.connect(
@@ -77,9 +81,10 @@ conn= MySQLdb.connect(
 
 def get_account_page_urls():
     all_urls = []
-    file = open("accounts.txt")
+    file = open("openids.txt")
     for line in file.xreadlines():
-        acccount_url = line +  get_current_timestamp()
+        # acccount_url = line +  get_current_timestamp()
+        acccount_url = line.strip('\n') 
         all_urls.append(acccount_url)
     #shuffle
     random.shuffle(all_urls)
@@ -91,16 +96,53 @@ def get_current_timestamp():
 def format_current_timestamp():
     return time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
     
-def get_account_data(account_page_url):
+def get_account_data(openid):
     try:
         account_data = {}
         #headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0'}
-        headers = {}
-        headers['User-Agent'] = random.choice(user_agents)
+        r_headers = {}
+        r_headers['User-Agent'] = random.choice(user_agents)
         # print headers
-        response = requests.get(account_page_url, headers=headers)
+        
+        
+        site_url = SITE_BASE + openid
+        resp = requests.get(site_url, headers=r_headers)
+        # print response.text
+
+        pattern = (
+            r'SogouEncrypt.setKv\("(\w+)","(\d)"\)'
+            r'.*?'
+            # r'SogouEncrypt.encryptquery\("(\w+)","(\w+)"\)'
+            r'SogouEncrypt.encryptquery\("(\w+)[\s\S]?","(\w+)"\)'
+        )
+        m = re.findall(pattern, resp.text, re.S)
+        # print m
+        key, level, secret, setting = m[0]
+
+        # index_url = INDEX_BASE + openid
+        eqs = quote(_cipher_eqs(key, secret, setting))
+        # print eqs
+        # print level
+        
+        account_page_url = INDEX_BASE + openid + "&eqs=" + eqs + "&ekv=" + level +  "&t=" +  get_current_timestamp()
+        # print account_page_url
+        # resp = requests.get(
+        #     'http://weixin.sogou.com/gzhjs',
+        #     params={
+        #         'cb': 'sogou.weixin.gzhcb',
+        #         'openid': openid,
+        #         'eqs': eqs,
+        #         'ekv': level,
+        #         'page': '1',
+        #         't': get_current_timestamp(),
+        #     },
+        #     headers=r_headers,
+        # )
+        
+        resp = requests.get(account_page_url, headers=r_headers)
         # soup = bs4.BeautifulSoup(response.text)
-        req_json = get_regex_value(r_req_data, response.text, 1)
+        # print resp.text
+        req_json = get_regex_value(r_req_data, resp.text, 1)
         req_json = req_json.replace('gbk','utf-8')
         req_json = req_json.replace('gb2312','utf-8')
         req_json = req_json.replace('GBK','utf-8')
@@ -199,6 +241,57 @@ def get_regex_value(regex, html, index):
     except:
         print(format_current_timestamp() + " " + "get_regex_value Unexpected error:", sys.exc_info()[0])
         return ''
+        
+def _cipher_eqs(key, secret, setting='sogou'):
+    assert len(key) == 11
+
+    ss = setting.split('-')
+
+    # function g
+    if len(ss) > 2:
+        h = ss[2]
+    else:
+        h = ss[0]
+
+    # function f
+    if len(h) > 5:
+        n = h[:-5]
+    else:
+        n = h + (5 - len(h)) * 's'
+
+    key += n
+
+    data = secret + 'hdq=' + setting
+    # padding data
+    length = 16 - (len(data) % 16)
+    data += chr(length) * length
+
+    IV = b'0000000000000000'
+    cipher = AES.new(to_bytes(key), AES.MODE_CBC, IV)
+    # encrypt data
+    data = cipher.encrypt(to_bytes(data))
+    data = to_unicode(base64.b64encode(data))
+    
+    # function e
+    rv = ''
+    i = 0
+    for m in range(len(data)):
+        rv += data[m]
+        if (m == pow(2, i)) and i < 5:
+            rv += n[i]
+            i += 1
+    return rv
+    
+def to_unicode(text):
+    if isinstance(text, str):
+        return text
+    return text.decode('utf-8')
+
+
+def to_bytes(text):
+    if isinstance(text, bytes):
+        return text
+    return text.encode('utf-8')
 
 def get_logger():  
     # 创建一个logger,可以考虑如何将它封装  
