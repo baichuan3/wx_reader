@@ -188,8 +188,8 @@ def get_account_data(openid):
 
             # return account_data
     except:
-            print(format_current_timestamp() + " " + "get_account_data Unexpected error:", sys.exc_info()[0])
-            print(format_current_timestamp() + " " + "get_account_data Unexpected error: trace ", traceback.format_exc())
+            print(format_current_timestamp() + " " + "get_account_data Unexpected error, openid=" + openid + ", " , sys.exc_info()[0])
+            print(format_current_timestamp() + " " + "get_account_data Unexpected error, trace openid=" + openid + ", " , traceback.format_exc())
             # return ''        
         
 def insert_data(account_data):
