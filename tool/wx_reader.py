@@ -124,6 +124,7 @@ def get_account_data(openid):
         # print eqs
         # print level
         
+        sleep(20 + random.randint(10,60))
         account_page_url = INDEX_BASE + openid + "&eqs=" + eqs + "&ekv=" + level +  "&t=" +  get_current_timestamp()
         # print account_page_url
         # resp = requests.get(
