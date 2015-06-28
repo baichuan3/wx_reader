@@ -105,7 +105,7 @@ def get_account_data(openid):
         # print headers
         
         # proxyDict = {"http":"117.185.13.86:8080"}
-        proxyDict = {"http":" 112.124.103.195:80"}
+        proxyDict = {"http":"115.231.188.109:8080"}
         site_url = SITE_BASE + openid
         resp = requests.get(site_url, headers=r_headers, proxies=proxyDict)
         print resp.text
