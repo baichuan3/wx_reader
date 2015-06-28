@@ -104,10 +104,10 @@ def get_account_data(openid):
         r_headers['User-Agent'] = random.choice(user_agents)
         # print headers
         
-        proxyDict = {"http":"115.231.188.109:8080"}
+        proxyDict = {"http":"117.185.13.86:8080"}
         site_url = SITE_BASE + openid
         resp = requests.get(site_url, headers=r_headers, proxies=proxyDict)
-        # print response.text
+        print resp.text
 
         pattern = (
             r'SogouEncrypt.setKv\("(\w+)","(\d)"\)'
