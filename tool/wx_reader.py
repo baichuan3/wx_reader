@@ -104,9 +104,9 @@ def get_account_data(openid):
         r_headers['User-Agent'] = random.choice(user_agents)
         # print headers
         
-        
+        proxyDict = {"http":"115.231.188.109:8080"}
         site_url = SITE_BASE + openid
-        resp = requests.get(site_url, headers=r_headers)
+        resp = requests.get(site_url, headers=r_headers, proxies=proxyDict)
         # print response.text
 
         pattern = (
@@ -140,7 +140,7 @@ def get_account_data(openid):
         #     headers=r_headers,
         # )
         
-        resp = requests.get(account_page_url, headers=r_headers)
+        resp = requests.get(account_page_url, headers=r_headers, proxies=proxyDict)
         # soup = bs4.BeautifulSoup(response.text)
         # print resp.text
         req_json = get_regex_value(r_req_data, resp.text, 1)
