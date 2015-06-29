@@ -110,7 +110,7 @@ def get_account_data(openid):
         site_url = SITE_BASE + openid
         # resp = requests.get(site_url, headers=r_headers, proxies=proxyDict)
         resp = requests.get(site_url, headers=r_headers)
-        # print resp.text
+        print resp.text
 
         pattern = (
             r'SogouEncrypt.setKv\("(\w+)","(\d)"\)'
