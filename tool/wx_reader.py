@@ -105,10 +105,11 @@ def get_account_data(openid):
         # print headers
         
         # proxyDict = {"http":"117.185.13.86:8080"}
-        proxyDict = {"http":"115.231.188.109:8080"}
+        # proxyDict = {"http":"115.231.188.109:8080"}
         site_url = SITE_BASE + openid
-        resp = requests.get(site_url, headers=r_headers, proxies=proxyDict)
-        print resp.text
+        # resp = requests.get(site_url, headers=r_headers, proxies=proxyDict)
+        resp = requests.get(site_url, headers=r_headers)
+        # print resp.text
 
         pattern = (
             r'SogouEncrypt.setKv\("(\w+)","(\d)"\)'
@@ -141,7 +142,8 @@ def get_account_data(openid):
         #     headers=r_headers,
         # )
         
-        resp = requests.get(account_page_url, headers=r_headers, proxies=proxyDict)
+        # resp = requests.get(account_page_url, headers=r_headers, proxies=proxyDict)
+        resp = requests.get(account_page_url, headers=r_headers)
         # soup = bs4.BeautifulSoup(response.text)
         # print resp.text
         req_json = get_regex_value(r_req_data, resp.text, 1)
