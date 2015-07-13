@@ -57,7 +57,7 @@ user_agents=[
     'NOKIA5700/ UCWEB7.0.2.37/28/999',
     'Openwave/ UCWEB7.0.2.37/28/999',
     'Mozilla/4.0 (compatible; MSIE 6.0; ) Opera/UCWEB7.0.2.37/28/999'
-    
+
 ]
 
 #匹配js返回的请求json数据
@@ -84,8 +84,8 @@ def get_account_page_urls():
     file = open("openids.txt")
     for line in file.xreadlines():
         # acccount_url = line +  get_current_timestamp()
-        acccount_url = line.strip('\n').strip('\r\n') 
-        # acccount_url = acccount_url.strip('\r\n') 
+        acccount_url = line.strip('\n').strip('\r\n')
+        # acccount_url = acccount_url.strip('\r\n')
         all_urls.append(acccount_url)
     #shuffle
     random.shuffle(all_urls)
@@ -93,10 +93,10 @@ def get_account_page_urls():
 
 def get_current_timestamp():
     return (str)((long)(time.time()*1000))
-    
+
 def format_current_timestamp():
     return time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
-    
+
 def get_account_data(openid):
     try:
         account_data = {}
@@ -104,7 +104,7 @@ def get_account_data(openid):
         r_headers = {}
         r_headers['User-Agent'] = random.choice(user_agents)
         # print headers
-        
+
         # proxyDict = {"http":"117.185.13.86:8080"}
         # proxyDict = {"http":"115.231.188.109:8080"}
         site_url = SITE_BASE + openid
@@ -126,7 +126,7 @@ def get_account_data(openid):
         eqs = quote(_cipher_eqs(key, secret, setting))
         # print eqs
         # print level
-        
+
         sleep(20 + random.randint(10,60))
         account_page_url = INDEX_BASE + openid + "&eqs=" + eqs + "&ekv=" + level +  "&t=" +  get_current_timestamp()
         # print account_page_url
@@ -142,7 +142,7 @@ def get_account_data(openid):
         #     },
         #     headers=r_headers,
         # )
-        
+
         # resp = requests.get(account_page_url, headers=r_headers, proxies=proxyDict)
         resp = requests.get(account_page_url, headers=r_headers)
         # soup = bs4.BeautifulSoup(response.text)
@@ -164,13 +164,13 @@ def get_account_data(openid):
             imglink = root.findall(".//imglink")[0].text
             docid = root.findall(".//display/docid")[0].text
             last_modified = root.findall(".//lastModified")[0].text
-            
+
             mid  = get_regex_value(r_mid, url, 1)
-            
+
             if((long)(mid) <= (long)(max_mid)):
                 print format_current_timestamp() + " " + sourcename  , '''has no new article, so break'''
                 break
-        
+
             account_data["headimage"] = headimage
             account_data["sourcename"] = sourcename
             account_data["openid"] = openid
@@ -182,7 +182,7 @@ def get_account_data(openid):
             account_data["last_modified"] = last_modified
             account_data["mid"] = mid
             # print docid
-        
+
             # print item_xml_data
             # print account_data
             insert_data(account_data)
@@ -195,8 +195,8 @@ def get_account_data(openid):
     except:
             print(format_current_timestamp() + " " + "get_account_data Unexpected error, openid=" + openid + ", " , sys.exc_info()[0])
             print(format_current_timestamp() + " " + "get_account_data Unexpected error, trace openid=" + openid + ", " , traceback.format_exc())
-            # return ''        
-        
+            # return ''
+
 def insert_data(account_data):
     cur = conn.cursor()
 
@@ -216,9 +216,14 @@ def insert_data(account_data):
     sql = sql[0:len(sql)-2]
     sql = sql + ") on duplicate key update created_at=" + get_current_timestamp()
     sql = sql + ", last_modified=" + (account_data["last_modified"])
-    
+
     print format_current_timestamp() + " " + sql
-    cur.execute(sql)
+    # cur.execute(sql)
+
+    cur.execute ("""insert into wx_reader(mid, openid, sourcename,headimage,title,url,content168,imglink,created_at,docid,last_modified) values(
+        %s, %s, %s, %s, %s, %s, %s, %s,%s, %s,%s) on duplicate key update created_at=%s, last_modified=%s
+           """, (account_data["mid"], account_data["openid"], account_data["sourcename"], account_data["headimage"], account_data["title"], account_data["url"],
+          account_data["content168"],account_data["imglink"],get_current_timestamp(),account_data["docid"],account_data["last_modified"],get_current_timestamp(),account_data["last_modified"] ))
 
     cur.close()
     conn.commit()
@@ -237,16 +242,16 @@ def query_one_data(openid):
 
     cur.close()
     conn.commit()
-    
+
     return mid
-    
+
 def get_regex_value(regex, html, index):
     try:
         return regex.search(html).group(index)
     except:
         print(format_current_timestamp() + " " + "get_regex_value Unexpected error:", sys.exc_info()[0])
         return ''
-        
+
 def _cipher_eqs(key, secret, setting='sogou'):
     assert len(key) == 11
 
@@ -276,7 +281,7 @@ def _cipher_eqs(key, secret, setting='sogou'):
     # encrypt data
     data = cipher.encrypt(to_bytes(data))
     data = to_unicode(base64.b64encode(data))
-    
+
     # function e
     rv = ''
     i = 0
@@ -286,7 +291,7 @@ def _cipher_eqs(key, secret, setting='sogou'):
             rv += n[i]
             i += 1
     return rv
-    
+
 def to_unicode(text):
     if isinstance(text, str):
         return text
@@ -298,31 +303,31 @@ def to_bytes(text):
         return text
     return text.encode('utf-8')
 
-def get_logger():  
-    # 创建一个logger,可以考虑如何将它封装  
-    logger = logging.getLogger('mylogger')  
-    logger.setLevel(logging.DEBUG)  
-      
-    # 创建一个handler，用于写入日志文件  
-    fh = logging.FileHandler(os.path.join(os.getcwd(), 'log.txt'))  
-    fh.setLevel(logging.DEBUG)  
-      
-    # 再创建一个handler，用于输出到控制台  
-    ch = logging.StreamHandler()  
-    ch.setLevel(logging.DEBUG)  
-      
-    # 定义handler的输出格式  
-    formatter = logging.Formatter('%(asctime)s - %(module)s.%(funcName)s.%(lineno)d - %(levelname)s - %(message)s')  
-    fh.setFormatter(formatter)  
-    ch.setFormatter(formatter)  
-      
-    # 给logger添加handler  
-    logger.addHandler(fh)  
-    logger.addHandler(ch)  
-      
-    # 记录一条日志  
-    logger.info('hello world, i\'m log helper in python, may i help you')  
-    return logger  
+def get_logger():
+    # 创建一个logger,可以考虑如何将它封装
+    logger = logging.getLogger('mylogger')
+    logger.setLevel(logging.DEBUG)
+
+    # 创建一个handler，用于写入日志文件
+    fh = logging.FileHandler(os.path.join(os.getcwd(), 'log.txt'))
+    fh.setLevel(logging.DEBUG)
+
+    # 再创建一个handler，用于输出到控制台
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+
+    # 定义handler的输出格式
+    formatter = logging.Formatter('%(asctime)s - %(module)s.%(funcName)s.%(lineno)d - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    ch.setFormatter(formatter)
+
+    # 给logger添加handler
+    logger.addHandler(fh)
+    logger.addHandler(ch)
+
+    # 记录一条日志
+    logger.info('hello world, i\'m log helper in python, may i help you')
+    return logger
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Scrawler wx account data.')
@@ -333,7 +338,7 @@ def start_tasks(options):
      # account_page_urls = get_account_page_urls()
     # pool = Pool(options.workers)
     # pool.map(get_account_data, account_page_urls)
-    
+
     #single thread
      while True:
         account_page_urls = get_account_page_urls()
@@ -341,7 +346,7 @@ def start_tasks(options):
             get_account_data(account_page_url)
             #anti block
             sleep(120 + random.randint(30,300))
-        
+
         #随机一段时间，重新抓取
         #mysql 连接超过8小时不使用，会报异常mysql server has gone
         #anti block
