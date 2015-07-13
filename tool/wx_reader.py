@@ -84,8 +84,8 @@ def get_account_page_urls():
     file = open("openids.txt")
     for line in file.xreadlines():
         # acccount_url = line +  get_current_timestamp()
-        acccount_url = line.strip('\n') 
-        acccount_url = line.strip('\r\n') 
+        acccount_url = line.strip('\n').strip('\r\n') 
+        # acccount_url = acccount_url.strip('\r\n') 
         all_urls.append(acccount_url)
     #shuffle
     random.shuffle(all_urls)

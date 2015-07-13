@@ -8,7 +8,7 @@ class ArticleModel {
 
         $end = $start + $count;
         $sql = " select mid,openid,sourcename,headimage,title,url,content168,imglink,created_at,docid,last_modified from wx_reader order by last_modified desc limit ";
-        $sql = $sql . strval($start) . "," . strval($end);
+        $sql = $sql . strval($start) . "," . strval($count);
 //        print_r($sql);
         $db_data = Yaf_Registry::get("db")->FetchAll($sql);
 //        print_r($db_data);
