@@ -345,12 +345,12 @@ def start_tasks(options):
         for account_page_url in account_page_urls:
             get_account_data(account_page_url)
             #anti block
-            sleep(100 + random.randint(30,200))
+            sleep(100 + random.randint(40,300))
 
         #随机一段时间，重新抓取
         #mysql 连接超过8小时不使用，会报异常mysql server has gone
         #anti block
-        sleep(random.randint(2,5)*60*60)
+        sleep(random.randint(3,7)*60*60)
 
 if __name__ == '__main__':
     reload(sys)
