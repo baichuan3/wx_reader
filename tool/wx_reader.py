@@ -22,6 +22,9 @@ from urllib import quote
 #待爬取的urls
 
 #UserAgent集合，变换ua，减少被屏蔽的概率
+UA = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5"
+# cookies = {}
+
 user_agents=[
     'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50',
     'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50',
@@ -105,12 +108,27 @@ def get_account_data(openid):
         r_headers['User-Agent'] = random.choice(user_agents)
         # print headers
 
-        # proxyDict = {"http":"117.185.13.86:8080"}
-        # proxyDict = {"http":"115.231.188.109:8080"}
+        # proxyDict = {"http":"183.207.228.11:86"}
+        # proxyDict = {"http":"183.22.131.107:8090"}
         site_url = SITE_BASE + openid
+        # cookies = update_cookies(r_headers['User-Agent'], site_url)
         # resp = requests.get(site_url, headers=r_headers, proxies=proxyDict)
-        resp = requests.get(site_url, headers=r_headers)
+        cookies = {}
+        s = requests.Session()
+        s.headers.update(r_headers)
+        resp = s.get(site_url, headers=r_headers)
         # print resp.text
+        # headers = {"User-Agent": ua}
+        # url = 'http://weixin.sogou.com' + '/weixin?query=123'
+        # r = s.get(url)
+        if 'SNUID' not in s.cookies:
+            p = re.compile(r'(?<=SNUID=)\w+')
+            s.cookies['SNUID'] = p.findall(r.text)[0]
+            suv = ''.join([str(int(time.time()*1000000) + random.randint(0, 1000))])
+            s.cookies['SUV'] = suv
+            cookies = s.cookies;
+            print cookies;
+        # return s.cookies
 
         pattern = (
             r'SogouEncrypt.setKv\("(\w+)","(\d)"\)'
@@ -144,7 +162,7 @@ def get_account_data(openid):
         # )
 
         # resp = requests.get(account_page_url, headers=r_headers, proxies=proxyDict)
-        resp = requests.get(account_page_url, headers=r_headers)
+        resp = s.get(account_page_url, headers=r_headers, cookies=cookies)
         # soup = bs4.BeautifulSoup(response.text)
         # print resp.text
         req_json = get_regex_value(r_req_data, resp.text, 1)
@@ -303,6 +321,19 @@ def to_bytes(text):
         return text
     return text.encode('utf-8')
 
+def update_cookies(ua, url):
+    s = requests.Session()
+    headers = {"User-Agent": ua}
+    s.headers.update(headers)
+    # url = 'http://weixin.sogou.com' + '/weixin?query=123'
+    r = s.get(url)
+    if 'SNUID' not in s.cookies:
+        p = re.compile(r'(?<=SNUID=)\w+')
+        s.cookies['SNUID'] = p.findall(r.text)[0]
+        suv = ''.join([str(int(time.time()*1000000) + random.randint(0, 1000))])
+        s.cookies['SUV'] = suv
+    return s.cookies
+
 def get_logger():
     # 创建一个logger,可以考虑如何将它封装
     logger = logging.getLogger('mylogger')
@@ -351,6 +382,9 @@ def start_tasks(options):
         #mysql 连接超过8小时不使用，会报异常mysql server has gone
         #anti block
         sleep(random.randint(3,7)*60*60)
+
+        #update cookie
+        cookies = update_cookies()
 
 if __name__ == '__main__':
     reload(sys)
