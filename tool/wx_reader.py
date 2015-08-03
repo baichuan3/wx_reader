@@ -121,14 +121,15 @@ def get_account_data(openid):
         # headers = {"User-Agent": ua}
         # url = 'http://weixin.sogou.com' + '/weixin?query=123'
         # r = s.get(url)
+        # print s.cookies;
         if 'SNUID' not in s.cookies:
             p = re.compile(r'(?<=SNUID=)\w+')
             s.cookies['SNUID'] = p.findall(r.text)[0]
             suv = ''.join([str(int(time.time()*1000000) + random.randint(0, 1000))])
             s.cookies['SUV'] = suv
-            cookies = s.cookies;
-            print cookies;
-        # return s.cookies
+
+        cookies = s.cookies;
+
 
         pattern = (
             r'SogouEncrypt.setKv\("(\w+)","(\d)"\)'
