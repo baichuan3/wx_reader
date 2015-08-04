@@ -106,7 +106,7 @@ def get_account_data(openid):
         #headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0'}
         r_headers = {}
         r_headers['User-Agent'] = random.choice(user_agents)
-        # print headers
+        # print r_headers
 
         # proxyDict = {"http":"183.207.228.11:86"}
         # proxyDict = {"http":"183.22.131.107:8090"}
@@ -117,19 +117,18 @@ def get_account_data(openid):
         s = requests.Session()
         s.headers.update(r_headers)
         resp = s.get(site_url, headers=r_headers)
+        # resp = s.get(site_url, headers=r_headers)
         # print resp.text
         # headers = {"User-Agent": ua}
         # url = 'http://weixin.sogou.com' + '/weixin?query=123'
         # r = s.get(url)
         # print s.cookies;
-        if 'SNUID' not in s.cookies:
-            p = re.compile(r'(?<=SNUID=)\w+')
-            s.cookies['SNUID'] = p.findall(r.text)[0]
-            suv = ''.join([str(int(time.time()*1000000) + random.randint(0, 1000))])
-            s.cookies['SUV'] = suv
-
-        cookies = s.cookies;
-
+        # if 'SNUID' not in s.cookies:
+        #     p = re.compile(r'(?<=SNUID=)\w+')
+        #     s.cookies['SNUID'] = p.findall(r.text)[0]
+        #     suv = ''.join([str(int(time.time()*1000000) + random.randint(0, 1000))])
+        #     s.cookies['SUV'] = suv
+        cookies = update_cookies(s.cookies)
 
         pattern = (
             r'SogouEncrypt.setKv\("(\w+)","(\d)"\)'
@@ -164,6 +163,7 @@ def get_account_data(openid):
 
         # resp = requests.get(account_page_url, headers=r_headers, proxies=proxyDict)
         resp = s.get(account_page_url, headers=r_headers, cookies=cookies)
+        # cookies = update_cookies(s.cookies)
         # soup = bs4.BeautifulSoup(response.text)
         # print resp.text
         req_json = get_regex_value(r_req_data, resp.text, 1)
@@ -215,6 +215,8 @@ def get_account_data(openid):
             print(format_current_timestamp() + " " + "get_account_data Unexpected error, openid=" + openid + ", " , sys.exc_info()[0])
             print(format_current_timestamp() + " " + "get_account_data Unexpected error, trace openid=" + openid + ", " , traceback.format_exc())
             # return ''
+
+    return cookies
 
 def insert_data(account_data):
     cur = conn.cursor()
@@ -322,18 +324,26 @@ def to_bytes(text):
         return text
     return text.encode('utf-8')
 
-def update_cookies(ua, url):
-    s = requests.Session()
-    headers = {"User-Agent": ua}
-    s.headers.update(headers)
-    # url = 'http://weixin.sogou.com' + '/weixin?query=123'
-    r = s.get(url)
-    if 'SNUID' not in s.cookies:
+# def update_cookies(ua, url):
+#     s = requests.Session()
+#     headers = {"User-Agent": ua}
+#     s.headers.update(headers)
+#     # url = 'http://weixin.sogou.com' + '/weixin?query=123'
+#     r = s.get(url)
+#     if 'SNUID' not in s.cookies:
+#         p = re.compile(r'(?<=SNUID=)\w+')
+#         s.cookies['SNUID'] = p.findall(r.text)[0]
+#         suv = ''.join([str(int(time.time()*1000000) + random.randint(0, 1000))])
+#         s.cookies['SUV'] = suv
+#     return s.cookies
+
+def update_cookies(cookies):
+    if 'SNUID' not in cookies:
         p = re.compile(r'(?<=SNUID=)\w+')
-        s.cookies['SNUID'] = p.findall(r.text)[0]
+        cookies['SNUID'] = p.findall(r.text)[0]
         suv = ''.join([str(int(time.time()*1000000) + random.randint(0, 1000))])
-        s.cookies['SUV'] = suv
-    return s.cookies
+        cookies['SUV'] = suv
+    return cookies
 
 def get_logger():
     # 创建一个logger,可以考虑如何将它封装
@@ -374,6 +384,8 @@ def start_tasks(options):
     #single thread
      while True:
         account_page_urls = get_account_page_urls()
+        # cookies = {}
+
         for account_page_url in account_page_urls:
             get_account_data(account_page_url)
             #anti block
@@ -385,7 +397,7 @@ def start_tasks(options):
         sleep(random.randint(3,7)*60*60)
 
         #update cookie
-        cookies = update_cookies()
+        # cookies = update_cookies()
 
 if __name__ == '__main__':
     reload(sys)
