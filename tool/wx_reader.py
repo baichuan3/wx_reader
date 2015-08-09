@@ -128,7 +128,7 @@ def get_account_data(openid):
         #     s.cookies['SNUID'] = p.findall(r.text)[0]
         #     suv = ''.join([str(int(time.time()*1000000) + random.randint(0, 1000))])
         #     s.cookies['SUV'] = suv
-        cookies = update_cookies(s.cookies)
+        cookies = update_cookies(s.cookies, resp)
 
         pattern = (
             r'SogouEncrypt.setKv\("(\w+)","(\d)"\)'
@@ -337,10 +337,10 @@ def to_bytes(text):
 #         s.cookies['SUV'] = suv
 #     return s.cookies
 
-def update_cookies(cookies):
+def update_cookies(cookies, resp):
     if 'SNUID' not in cookies:
         p = re.compile(r'(?<=SNUID=)\w+')
-        cookies['SNUID'] = p.findall(r.text)[0]
+        cookies['SNUID'] = p.findall(resp.text)[0]
         suv = ''.join([str(int(time.time()*1000000) + random.randint(0, 1000))])
         cookies['SUV'] = suv
     return cookies
@@ -389,12 +389,12 @@ def start_tasks(options):
         for account_page_url in account_page_urls:
             get_account_data(account_page_url)
             #anti block
-            sleep(100 + random.randint(40,300))
+            sleep(60 + random.randint(30,200))
 
         #随机一段时间，重新抓取
         #mysql 连接超过8小时不使用，会报异常mysql server has gone
         #anti block
-        sleep(random.randint(3,7)*60*60)
+        sleep(random.randint(2,6)*60*60)
 
         #update cookie
         # cookies = update_cookies()
