@@ -128,7 +128,6 @@ def get_account_data(openid):
         #     s.cookies['SNUID'] = p.findall(r.text)[0]
         #     suv = ''.join([str(int(time.time()*1000000) + random.randint(0, 1000))])
         #     s.cookies['SUV'] = suv
-        cookies = update_cookies(s.cookies, resp)
 
         pattern = (
             r'SogouEncrypt.setKv\("(\w+)","(\d)"\)'
@@ -146,6 +145,7 @@ def get_account_data(openid):
         # print level
 
         sleep(20 + random.randint(10,60))
+        cookies = update_cookies(s.cookies, resp)
         account_page_url = INDEX_BASE + openid + "&eqs=" + eqs + "&ekv=" + level +  "&t=" +  get_current_timestamp()
         # print account_page_url
         # resp = requests.get(
